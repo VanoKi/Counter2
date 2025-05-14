@@ -1,4 +1,5 @@
 import {Button} from "./Button.tsx";
+import {useState} from "react";
 
 type Props = {
   minVal: number
@@ -8,23 +9,34 @@ type Props = {
 };
 
 export const SetDisplay = (props: Props) => {
+
   const {minVal, maxVal, setMinVal, setMaxVal} = props
-  const showValue = (val:string) => console.log(val)
+  const [tempMin, setTempMin] = useState(minVal)
+  const [tempMax, setTempMax] = useState(maxVal)
+
+  const onSetHandler = () => {
+    setMinVal(tempMin)
+    setMaxVal(tempMax)
+  }
+
   return (
     <>
-      <div className={''}>
+      <div className={'set-display'}>
         <input
           type={"number"}
           value={minVal}
-          onChange={(e) => showValue(e.target.value)}
+          onChange={(e) => setTempMin(Number(e.target.value))}
+          onFocus={() => setTempMin(NaN)}
         />
         <input
           type={"number"}
           value={maxVal}
+          onChange={(e) => setTempMax(Number(e.target.value))}
+          onFocus={() => setTempMax(NaN)}
         />
       </div>
       <div className={'btn-wrap'}>
-        <Button title={'Set'}/>
+        <Button title={'Set'} callBack={onSetHandler}/>
       </div>
     </>
   );
