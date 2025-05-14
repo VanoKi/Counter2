@@ -12,10 +12,21 @@
   border: 2px solid black;
 
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
 .btn {
   background: grey;
+}
+
+.display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.counter-display {
+  min-width: 40vw;
+  min-height: 40vh;
 }
