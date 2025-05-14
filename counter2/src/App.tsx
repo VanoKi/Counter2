@@ -1,17 +1,22 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import {SetDisplay} from "./components/setDisplay.tsx";
+// import {SetDisplay} from "./components/setDisplay.tsx";
 import {CounterDisplay} from "./components/CounterDisplay.tsx";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [minVal, setMinVal] = useState(0)
+  const [maxVal, setMaxVal] = useState(5)
+  // const [val, setVal] = useState(0)
 
   return (
     <div className={'app'}>
-      <SetDisplay/>
-      <CounterDisplay />
+      {/*<SetDisplay minVal={minVal} maxVal={maxVal} setMinVal={() => setMinVal(minVal)}/>*/}
+      <CounterDisplay
+        minVal={minVal}
+        maxVal={maxVal}
+        setMinVal={setMinVal}
+        setMaxVal={setMaxVal}
+      />
     </div>
   )
 }

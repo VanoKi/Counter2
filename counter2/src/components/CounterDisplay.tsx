@@ -2,11 +2,15 @@ import {Button} from "./Button.tsx";
 import {useState} from "react";
 
 type Props = {
-  
+  minVal: number
+  maxVal: number
+  setMinVal: () => void
+  setMaxVal: () => void
 };
+
 export const CounterDisplay = (props: Props) => {
-  let minVal = 0
-  let maxVal = 5
+
+  const {minVal, maxVal, setMinVal, setMaxVal} = props
   let [val, setVal] = useState(minVal)
 
   const incVal = () => {
@@ -26,8 +30,8 @@ export const CounterDisplay = (props: Props) => {
         <span>{val}</span>
       </div>
       <div className={'btn-wrap'}>
-        <Button title={'increment'} callBack={() => incVal()} disabled={val==maxVal}/>
-        <Button title={'reset'} callBack={resetVal} disabled={val === minVal}/>
+        <Button title={'increment'} callBack={incVal} disabled={val ===maxVal}/>
+        <Button title={'reset'} callBack={resetVal} disabled={val === minVal} />
       </div>
     </div>
   );
