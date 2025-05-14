@@ -1,6 +1,3 @@
-// @flow 
-import * as React from 'react';
-
 type Props = {
   title: string
   callBack?: () => void
