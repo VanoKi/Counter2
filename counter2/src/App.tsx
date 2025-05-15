@@ -6,7 +6,9 @@ import './App.css'
 function App() {
   let min = 0
   let max = 3
+  let errorMessage = 'Incorrect Value!'
 
+  const [error, setError] = useState(false)
   let [minVal, setMinVal] = useState(min)
   let [maxVal, setMaxVal] = useState(max)
   console.log(minVal, maxVal)
