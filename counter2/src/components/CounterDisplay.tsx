@@ -10,7 +10,7 @@ type Props = {
 
 export const CounterDisplay = (props: Props) => {
 
-  const {minVal, maxVal, setMinVal, setMaxVal} = props
+  const {minVal, maxVal} = props
   let [val, setVal] = useState(minVal)
 
   const incVal = () => {
@@ -22,6 +22,10 @@ export const CounterDisplay = (props: Props) => {
   }
 
   const resetVal = () => {
+    setVal(minVal)
+  }
+
+  if (val < minVal || val > maxVal) {
     setVal(minVal)
   }
 

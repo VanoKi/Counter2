@@ -6,7 +6,8 @@
 
 .app > div {
   border: 2px solid blue;
-  border-right: 5px;
+  border-radius: 15px;
+  padding: 10px;
 }
 
 .display {
