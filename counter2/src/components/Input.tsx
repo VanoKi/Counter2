@@ -3,11 +3,12 @@ import type {ChangeEvent} from "react";
 type Props = {
   title: string
   value: number
+  onChange: (value: number) => void
 };
 export const Input = (props: Props) => {
   const {title, value} = props
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-
+    onChange(e.currentTarget.value)
   }
   return (
     <label>
@@ -15,7 +16,7 @@ export const Input = (props: Props) => {
       <input
         type={'number'}
         value={value}
-        onChange={ (e) => {(Number(e.currentTarget.value))}}
+        onChange={onChangeHandler}
       />
     </label>
   );

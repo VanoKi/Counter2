@@ -34,8 +34,8 @@ export const SetDisplay = (props: Props) => {
         {/*  onChange={(e) => setTempMax(Number(e.target.value))}*/}
         {/*  onFocus={() => setTempMax(NaN)}*/}
         {/*/>*/}
-        <Input title={'max value'} value={maxVal}/>
-        <Input title={'start value'} value={minVal}/>
+        <Input title={'max value'} value={maxVal} onChange={setMaxVal}/>
+        <Input title={'start value'} value={minVal} onChange={setTempMin}/>
         <div className={'btn-wrap'}>
           <Button title={'Set'} callBack={onSetHandler}/>
         </div>
