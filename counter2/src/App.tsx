@@ -9,6 +9,7 @@ function App() {
 
   let [minVal, setMinVal] = useState(min)
   let [maxVal, setMaxVal] = useState(max)
+  console.log(minVal, maxVal)
   let [count, setCount] = useState(minVal)
   console.log(`count is: `, count)
   
@@ -23,9 +24,9 @@ function App() {
   const isIncDisabled = count === maxVal
   const isResetDisabled = count === minVal
 
-  const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    // console.log(e.currentTarget.value)
-
+  const onChangeHandler = (e: ChangeEvent<HTMLInputElement>,
+                           setter: (value:number) => void) => {
+    setter(Number(e.currentTarget.value))
   }
 
   return (
@@ -33,11 +34,19 @@ function App() {
       <div className={'input-panel'}>
         <div>
           <label htmlFor={'minVal'}>minVal</label>
-          <input id={'minVal'} value={minVal} type={'number'} onChange={onChangeHandler}></input>
+          <input
+            id={'minVal'}
+            value={minVal}
+            type={'number'}
+            onChange={(e) => onChangeHandler(e, setMinVal)}></input>
         </div>
         <div>
           <label htmlFor={'maxVal'}>minVal</label>
-          <input id={'maxVal'} value={maxVal} type={'number'} onChange={onChangeHandler}></input>
+          <input
+            id={'maxVal'}
+            value={maxVal}
+            type={'number'}
+            onChange={(e) => onChangeHandler(e, setMaxVal)}></input>
         </div>
         <button>set</button>
       </div>
