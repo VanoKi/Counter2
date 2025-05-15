@@ -33,20 +33,24 @@ function App() {
     <>
       <div className={'input-panel'}>
         <div>
-          <label htmlFor={'minVal'}>minVal</label>
-          <input
-            id={'minVal'}
-            value={minVal}
-            type={'number'}
-            onChange={(e) => onChangeHandler(e, setMinVal)}></input>
+          <label>
+            minVal:
+            <input
+              id={'minVal'}
+              value={minVal}
+              type={'number'}
+              onChange={(e) => onChangeHandler(e, setMinVal)}></input>
+          </label>
         </div>
         <div>
-          <label htmlFor={'maxVal'}>minVal</label>
-          <input
-            id={'maxVal'}
-            value={maxVal}
-            type={'number'}
-            onChange={(e) => onChangeHandler(e, setMaxVal)}></input>
+          <label>
+            minVal:
+            <input
+              id={'maxVal'}
+              value={maxVal}
+              type={'number'}
+              onChange={(e) => onChangeHandler(e, setMaxVal)}></input>
+          </label>
         </div>
         <button>set</button>
       </div>
