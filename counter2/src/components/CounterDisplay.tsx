@@ -17,6 +17,7 @@ export const CounterDisplay = (props: Props) => {
     if (val < maxVal) {
       val = val + 1
       setVal(val)
+      console.log(val)
     }
   }
 
