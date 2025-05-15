@@ -12,6 +12,8 @@ function App() {
   console.log(minVal, maxVal)
   let [count, setCount] = useState(minVal)
   console.log(`count is: `, count)
+  const [tempMin, setTempMin] = useState(minVal)
+  const [tempMax, setTempMax] = useState(maxVal)
   
   const incVal = () => {
     if (count < maxVal) {
@@ -28,6 +30,11 @@ function App() {
                            setter: (value:number) => void) => {
     setter(Number(e.currentTarget.value))
   }
+  const setValue = () => {
+    setMinVal(tempMin)
+    setMaxVal(tempMax)
+    setCount(tempMin)
+  }
 
   return (
     <>
@@ -39,7 +46,7 @@ function App() {
               id={'minVal'}
               value={minVal}
               type={'number'}
-              onChange={(e) => onChangeHandler(e, setMinVal)}></input>
+              onChange={(e) => onChangeHandler(e, setTempMin)}></input>
           </label>
         </div>
         <div>
