@@ -1,5 +1,5 @@
 import {Button} from "./Button.tsx";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {Input} from "./Input.tsx";
 
 type Props = {
@@ -24,6 +24,8 @@ export const SetDisplay = (props: Props) => {
   const onSetHandler = () => {
     setMinVal(tempMin)
     setMaxVal(tempMax)
+    localStorage.setItem('minVal', String(tempMin))
+    localStorage.setItem('maxVal', String(tempMax))
   }
 
   return (

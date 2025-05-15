@@ -1,5 +1,5 @@
 import {Button} from "./Button.tsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 type Props = {
   minVal: number
@@ -13,6 +13,9 @@ export const CounterDisplay = (props: Props) => {
 
   const {minVal, maxVal, hasError} = props
   let [val, setVal] = useState(minVal)
+  useEffect(() => {
+    setVal(minVal)
+  }, [minVal]);
 
   const incVal = () => {
     if (val < maxVal) {
@@ -25,10 +28,6 @@ export const CounterDisplay = (props: Props) => {
   const resetVal = () => {
     setVal(minVal)
   }
-
-  // if (val < minVal || val > maxVal) {
-  //   setVal(minVal)
-  // }
 
   return (
     <div className={'counter-display'}>
