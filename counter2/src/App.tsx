@@ -7,6 +7,7 @@ function App() {
   let minVal = 0
   let maxVal = 3
   let [count, setCount] = useState(minVal)
+  console.log(`count is: `, count)
   
   const incVal = () => {
     if (count < maxVal) {
