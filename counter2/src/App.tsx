@@ -44,7 +44,7 @@ function App() {
             minVal:
             <input
               id={'minVal'}
-              value={minVal}
+              value={tempMin}
               type={'number'}
               onChange={(e) => onChangeHandler(e, setTempMin)}></input>
           </label>
@@ -54,12 +54,12 @@ function App() {
             minVal:
             <input
               id={'maxVal'}
-              value={maxVal}
+              value={tempMax}
               type={'number'}
-              onChange={(e) => onChangeHandler(e, setMaxVal)}></input>
+              onChange={(e) => onChangeHandler(e, setTempMax)}></input>
           </label>
         </div>
-        <button>set</button>
+        <button onClick={setValue}>set</button>
       </div>
       <div className={'counter'}>
         <div>
