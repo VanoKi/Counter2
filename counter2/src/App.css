@@ -1,7 +1,12 @@
 .app {
   display: flex;
   gap: 20px;
-  border: 2px solid black;
+  /*border: 2px solid black;*/
+}
+
+.app > div {
+  border: 2px solid blue;
+  border-right: 5px;
 }
 
 .display {
@@ -9,7 +14,7 @@
 }
 
 .btn-wrap {
-  border: 2px solid black;
+  /*border: 2px solid black;*/
 
   display: flex;
   justify-content: space-around;

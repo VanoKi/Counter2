@@ -6,9 +6,9 @@ type Props = {
   onChange: (value: number) => void
 };
 export const Input = (props: Props) => {
-  const {title, value} = props
+  const {title, value, onChange} = props
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    onChange(e.currentTarget.value)
+    onChange(Number(e.currentTarget.value))
   }
   return (
     <label>

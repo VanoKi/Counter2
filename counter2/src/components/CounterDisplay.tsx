@@ -4,8 +4,8 @@ import {useState} from "react";
 type Props = {
   minVal: number
   maxVal: number
-  setMinVal: () => void
-  setMaxVal: () => void
+  setMinVal: (val: number) => void
+  setMaxVal: (val: number) => void
 };
 
 export const CounterDisplay = (props: Props) => {

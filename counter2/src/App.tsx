@@ -7,8 +7,7 @@ function App() {
   const [minVal, setMinVal] = useState(0)
   const [maxVal, setMaxVal] = useState(3)
   // const [val, setVal] = useState(0)
-  console.log(minVal)
-  console.log(maxVal)
+  console.log(minVal, maxVal)
 
   return (
     <div className={'app'}>
