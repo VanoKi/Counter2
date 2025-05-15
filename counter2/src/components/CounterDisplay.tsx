@@ -26,15 +26,15 @@ export const CounterDisplay = (props: Props) => {
     setVal(minVal)
   }
 
-  if (val < minVal || val > maxVal) {
-    setVal(minVal)
-  }
+  // if (val < minVal || val > maxVal) {
+  //   setVal(minVal)
+  // }
 
   return (
     <div className={'counter-display'}>
       <div className={'display'} >
         {hasError ? (
-          <span>Incorrect Value!</span>
+          <span className={'error'}>Incorrect Value!</span>
         ) : (
           <span>{val}</span>
           )}

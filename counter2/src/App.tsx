@@ -17,6 +17,7 @@ function App() {
         setMaxVal={setMaxVal}
       />
       <CounterDisplay
+        key={minVal}
         minVal={minVal}
         maxVal={maxVal}
         setMinVal={setMinVal}
