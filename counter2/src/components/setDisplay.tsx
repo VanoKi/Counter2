@@ -16,6 +16,8 @@ export const SetDisplay = (props: Props) => {
   const [tempMax, setTempMax] = useState(maxVal)
 
   const isChanged = tempMin !== minVal || tempMax !== maxVal
+  const isInvalid = tempMin < 0 || tempMin >= tempMax
+  const disabletSet = !isChanged || isInvalid
 
   const onSetHandler = () => {
     setMinVal(tempMin)
@@ -27,7 +29,7 @@ export const SetDisplay = (props: Props) => {
         <Input title={'max value'} value={tempMax} onChange={setTempMax}/>
         <Input title={'start value'} value={tempMin} onChange={setTempMin}/>
         <div className={'btn-wrap'}>
-          <Button title={'Set'} callBack={onSetHandler} disabled={!isChanged}/>
+          <Button title={'Set'} callBack={onSetHandler} disabled={disabletSet}/>
         </div>
       </div>
   );

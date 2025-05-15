@@ -6,11 +6,12 @@ type Props = {
   maxVal: number
   setMinVal: (val: number) => void
   setMaxVal: (val: number) => void
+  hasError: boolean
 };
 
 export const CounterDisplay = (props: Props) => {
 
-  const {minVal, maxVal} = props
+  const {minVal, maxVal, hasError} = props
   let [val, setVal] = useState(minVal)
 
   const incVal = () => {
@@ -32,7 +33,11 @@ export const CounterDisplay = (props: Props) => {
   return (
     <div className={'counter-display'}>
       <div className={'display'} >
-        <span>{val}</span>
+        {hasError ? (
+          <span>Incorrect Value!</span>
+        ) : (
+          <span>{val}</span>
+          )}
       </div>
       <div className={'btn-wrap'}>
         <Button title={'increment'} callBack={incVal} disabled={val ===maxVal}/>

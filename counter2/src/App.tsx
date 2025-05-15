@@ -6,8 +6,7 @@ import {CounterDisplay} from "./components/CounterDisplay.tsx";
 function App() {
   const [minVal, setMinVal] = useState(0)
   const [maxVal, setMaxVal] = useState(3)
-  // const [val, setVal] = useState(0)
-  console.log(minVal, maxVal)
+  const hasError = minVal < 0 || minVal > maxVal
 
   return (
     <div className={'app'}>
@@ -22,6 +21,7 @@ function App() {
         maxVal={maxVal}
         setMinVal={setMinVal}
         setMaxVal={setMaxVal}
+        hasError={hasError}
       />
     </div>
   )
