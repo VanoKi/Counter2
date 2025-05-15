@@ -1,37 +1,76 @@
-import { useState } from 'react'
+import {type ChangeEvent, useState} from 'react'
 import './App.css'
-import {SetDisplay} from "./components/setDisplay.tsx";
-import {CounterDisplay} from "./components/CounterDisplay.tsx";
 
 function App() {
-  // const [minVal, setMinVal] = useState(0)
-  // const [maxVal, setMaxVal] = useState(3)
-  const getFromLS = (key: string, defVal: number) => {
-    const value = localStorage.getItem(key)
-    return value !== null ? Number(value) : defVal
+  let min = 0
+  let max = 3
+  let errorMessage = 'Incorrect Value!'
+
+  const [error, setError] = useState(false)
+  let [minVal, setMinVal] = useState(min)
+  let [maxVal, setMaxVal] = useState(max)
+  console.log(minVal, maxVal)
+  let [count, setCount] = useState(minVal)
+  console.log(`count is: `, count)
+  const [tempMin, setTempMin] = useState(minVal)
+  const [tempMax, setTempMax] = useState(maxVal)
+  
+  const incVal = () => {
+    if (count < maxVal) {
+      setCount(count + 1)
+    }
+  }
+  const resetVal = () => {
+    setCount(minVal)
+  }
+  const isIncDisabled = count === maxVal
+  const isResetDisabled = count === minVal
+
+  const onChangeHandler = (e: ChangeEvent<HTMLInputElement>,
+                           setter: (value:number) => void) => {
+    setter(Number(e.currentTarget.value))
+  }
+  const setValue = () => {
+    setMinVal(tempMin)
+    setMaxVal(tempMax)
+    setCount(tempMin)
   }
 
-  const [minVal, setMinVal] = useState(() => getFromLS('minVal', 0))
-  const [maxVal, setMaxVal] = useState(() => getFromLS('maxVal', 3))
-
-  const hasError = minVal < 0 || minVal > maxVal
-
   return (
-    <div className={'app'}>
-      <SetDisplay
-        minVal={minVal}
-        maxVal={maxVal}
-        setMinVal={setMinVal}
-        setMaxVal={setMaxVal}
-      />
-      <CounterDisplay
-        minVal={minVal}
-        maxVal={maxVal}
-        setMinVal={setMinVal}
-        setMaxVal={setMaxVal}
-        hasError={hasError}
-      />
-    </div>
+    <>
+      <div className={'input-panel'}>
+        <div>
+          <label>
+            minVal:
+            <input
+              id={'minVal'}
+              value={tempMin}
+              type={'number'}
+              onChange={(e) => onChangeHandler(e, setTempMin)}></input>
+          </label>
+        </div>
+        <div>
+          <label>
+            maxVal:
+            <input
+              id={'maxVal'}
+              value={tempMax}
+              type={'number'}
+              onChange={(e) => onChangeHandler(e, setTempMax)}></input>
+          </label>
+        </div>
+        <button onClick={setValue}>set</button>
+      </div>
+      <div className={'counter'}>
+        <div>
+          <span className={isIncDisabled ? 'red' : ''} >{count}</span>
+        </div>
+        <div>
+          <button onClick={incVal} disabled={isIncDisabled}>increment</button>
+          <button onClick={resetVal} disabled={isResetDisabled}>reset</button>
+        </div>
+      </div>
+    </>
   )
 }
 
