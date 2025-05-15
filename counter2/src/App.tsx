@@ -26,7 +26,7 @@ function App() {
     <>
       <div className={'counter'}>
         <div>
-          <span>{count}</span>
+          <span className={isIncDisabled ? 'red' : ''} >{count}</span>
         </div>
         <div>
           <button onClick={incVal} disabled={isIncDisabled}>increment</button>
