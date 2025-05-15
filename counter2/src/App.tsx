@@ -19,6 +19,9 @@ function App() {
     setCount(minVal)
   }
 
+  const isIncDisabled = count === maxVal
+  const isResetDisabled = count === minVal
+
   return (
     <>
       <div className={'counter'}>
@@ -26,8 +29,8 @@ function App() {
           <span>{count}</span>
         </div>
         <div>
-          <button onClick={incVal}>increment</button>
-          <button onClick={resetVal}>reset</button>
+          <button onClick={incVal} disabled={isIncDisabled}>increment</button>
+          <button onClick={resetVal} disabled={isResetDisabled}>reset</button>
         </div>
       </div>
     </>
