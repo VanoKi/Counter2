@@ -48,3 +48,8 @@
 .red {
   color: red;
 }
+
+.input-panel {
+  display: flex;
+  flex-direction: column;
+}
