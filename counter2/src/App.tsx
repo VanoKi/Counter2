@@ -14,6 +14,10 @@ function App() {
     }
   }
 
+  const resetVal = () => {
+    setCount(minVal)
+  }
+
   return (
     <>
       <div className={'counter'}>
@@ -22,7 +26,7 @@ function App() {
         </div>
         <div>
           <button onClick={incVal}>increment</button>
-          <button>reset</button>
+          <button onClick={resetVal}>reset</button>
         </div>
       </div>
     </>
