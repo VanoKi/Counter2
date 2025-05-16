@@ -67,7 +67,11 @@ function App() {
       </div>
       <div className={'counter'}>
         <div>
-          <span className={isIncDisabled ? 'red' : ''}>{!hasError ? count : errorMessage}</span>
+          {hasError ? (
+            <span className={'red'}>{errorMessage}</span>
+          ) : (
+            <span className={isIncDisabled ? 'red' : ''}>{count}</span>
+          )}
         </div>
         <div className={'btn-wrap'}>
           <button onClick={incVal} disabled={isIncDisabled || hasError}>increment</button>
