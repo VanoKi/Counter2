@@ -5,6 +5,7 @@ function App() {
   let min = 1
   let max = 2
   let errorMessage = 'Incorrect Value!'
+  let correctValue = 'Enter values and press set'
 
   let [minVal, setMinVal] = useState(min)
   let [maxVal, setMaxVal] = useState(max)
@@ -30,6 +31,15 @@ function App() {
   const maxInputError = tempMax <= tempMin || tempMax < 0
   const hasError = tempMin < 0 || tempMax <= tempMin
 
+  const displayCount = () => {
+    if(hasError) {
+      return <span className={'red'}>{errorMessage}</span>
+    } else if (isSetDisabled) {
+      return <span className={isIncDisabled ? 'red' : ''}>{count}</span>
+    } else {
+      return <span>{correctValue}</span>
+    }
+  }
 
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>,
                            setter: (value:number) => void) => {
@@ -42,6 +52,9 @@ function App() {
     setCount(tempMin)
     setIsSetDisabled(true)
   }
+
+  console.log(`is edit ${!isSetDisabled}`)
+
 
   return (
     <>
@@ -70,11 +83,12 @@ function App() {
       </div>
       <div className={'counter'}>
         <div>
-          {hasError ? (
+          {/*{hasError ? (
             <span className={'red'}>{errorMessage}</span>
           ) : (
             <span className={isIncDisabled ? 'red' : ''}>{count}</span>
-          )}
+          )}*/}
+          {displayCount()}
         </div>
         <div className={'btn-wrap'}>
           <button onClick={incVal} disabled={isIncDisabled || hasError}>increment</button>

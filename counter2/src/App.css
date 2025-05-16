@@ -73,6 +73,7 @@ label {
 .btn-wrap {
   border: 2px solid blue;
   border-radius: 20px;
+  margin-bottom: 20px;
 }
 
 .btn {
