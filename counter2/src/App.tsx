@@ -7,6 +7,7 @@ function App() {
   let errorMessage = 'Incorrect Value!'
 
   const [error, setError] = useState(false)
+
   let [minVal, setMinVal] = useState(min)
   let [maxVal, setMaxVal] = useState(max)
   console.log(minVal, maxVal)
@@ -26,6 +27,10 @@ function App() {
   const isIncDisabled = count === maxVal
   const isResetDisabled = count === minVal
 
+  const hasError = tempMin < 0 || tempMax <= tempMin
+  const minTnputError = tempMin < 0 || tempMin >= tempMax
+  const maxInputError = tempMax <= tempMin || tempMax < 0
+
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>,
                            setter: (value:number) => void) => {
     setter(Number(e.currentTarget.value))
@@ -43,6 +48,7 @@ function App() {
           <label>
             minVal:
             <input
+              className={minTnputError ? 'input-error' : ''}
               id={'minVal'}
               value={tempMin}
               type={'number'}
@@ -53,17 +59,18 @@ function App() {
           <label>
             maxVal:
             <input
+              className={maxInputError ? 'input-error' : ''}
               id={'maxVal'}
               value={tempMax}
               type={'number'}
               onChange={(e) => onChangeHandler(e, setTempMax)}></input>
           </label>
         </div>
-        <button onClick={setValue}>set</button>
+        <button onClick={setValue} disabled={hasError}>set</button>
       </div>
       <div className={'counter'}>
         <div>
-          <span className={isIncDisabled ? 'red' : ''} >{count}</span>
+          <span className={isIncDisabled ? 'red' : ''} >{!hasError ? count : errorMessage}</span>
         </div>
         <div>
           <button onClick={incVal} disabled={isIncDisabled}>increment</button>
