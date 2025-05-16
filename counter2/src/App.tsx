@@ -13,6 +13,7 @@ function App() {
   console.log(`count is: `, count)
   const [tempMin, setTempMin] = useState(minVal)
   const [tempMax, setTempMax] = useState(maxVal)
+  const [isSetDisabled, setIsSetDisabled] = useState(true)
   
   const incVal = () => {
     if (count < maxVal) {
@@ -33,11 +34,13 @@ function App() {
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>,
                            setter: (value:number) => void) => {
     setter(Number(e.currentTarget.value))
+    setIsSetDisabled(false)
   }
   const setValue = () => {
     setMinVal(tempMin)
     setMaxVal(tempMax)
     setCount(tempMin)
+    setIsSetDisabled(true)
   }
 
   return (
@@ -62,7 +65,7 @@ function App() {
               onChange={(e) => onChangeHandler(e, setTempMax)}></input>
           </label>
         <div className={'btn-wrap'}>
-          <button onClick={setValue} disabled={hasError}>set</button>
+          <button onClick={setValue} disabled={hasError || isSetDisabled}>set</button>
         </div>
       </div>
       <div className={'counter'}>
