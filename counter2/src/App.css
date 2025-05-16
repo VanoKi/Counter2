@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  font-size: 1.3rem;
 }
 
 .logo {
@@ -54,6 +55,26 @@
   flex-direction: column;
 }
 
+.input {
+  border: 2px solid blue;
+  border-radius: 20px;
+  text-align: center;
+}
+
 .input-error {
   border: 2px solid red;
+}
+
+label {
+  display: flex;
+  gap: 10px
+}
+
+.btn-wrap {
+  border: 2px solid blue;
+  border-radius: 20px;
+}
+
+.btn {
+  font: bold;
 }

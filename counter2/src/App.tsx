@@ -2,8 +2,8 @@ import {type ChangeEvent, useState} from 'react'
 import './App.css'
 
 function App() {
-  let min = 0
-  let max = 3
+  let min = 1
+  let max = 2
   let errorMessage = 'Incorrect Value!'
 
   const [error, setError] = useState(false)
@@ -27,9 +27,10 @@ function App() {
   const isIncDisabled = count === maxVal
   const isResetDisabled = count === minVal
 
-  const hasError = tempMin < 0 || tempMax <= tempMin
   const minTnputError = tempMin < 0 || tempMin >= tempMax
   const maxInputError = tempMax <= tempMin || tempMax < 0
+  const hasError = tempMin < 0 || tempMax <= tempMin
+
 
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>,
                            setter: (value:number) => void) => {
@@ -44,37 +45,35 @@ function App() {
   return (
     <>
       <div className={'input-panel'}>
-        <div>
           <label>
-            minVal:
+            start Value:
             <input
-              className={minTnputError ? 'input-error' : ''}
+              className={minTnputError ? 'input-error' : 'input'}
               id={'minVal'}
               value={tempMin}
               type={'number'}
               onChange={(e) => onChangeHandler(e, setTempMin)}></input>
           </label>
-        </div>
-        <div>
           <label>
-            maxVal:
+            max Value:
             <input
-              className={maxInputError ? 'input-error' : ''}
+              className={maxInputError ? 'input-error' : 'input'}
               id={'maxVal'}
               value={tempMax}
               type={'number'}
               onChange={(e) => onChangeHandler(e, setTempMax)}></input>
           </label>
+        <div className={'btn-wrap'}>
+          <button onClick={setValue} disabled={hasError}>set</button>
         </div>
-        <button onClick={setValue} disabled={hasError}>set</button>
       </div>
       <div className={'counter'}>
         <div>
-          <span className={isIncDisabled ? 'red' : ''} >{!hasError ? count : errorMessage}</span>
+          <span className={isIncDisabled ? 'red' : ''}>{!hasError ? count : errorMessage}</span>
         </div>
-        <div>
-          <button onClick={incVal} disabled={isIncDisabled}>increment</button>
-          <button onClick={resetVal} disabled={isResetDisabled}>reset</button>
+        <div className={'btn-wrap'}>
+          <button onClick={incVal} disabled={isIncDisabled || hasError}>increment</button>
+          <button onClick={resetVal} disabled={isResetDisabled || hasError}>reset</button>
         </div>
       </div>
     </>
