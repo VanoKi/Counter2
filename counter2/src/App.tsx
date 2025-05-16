@@ -6,8 +6,6 @@ function App() {
   let max = 2
   let errorMessage = 'Incorrect Value!'
 
-  const [error, setError] = useState(false)
-
   let [minVal, setMinVal] = useState(min)
   let [maxVal, setMaxVal] = useState(max)
   console.log(minVal, maxVal)
@@ -27,7 +25,7 @@ function App() {
   const isIncDisabled = count === maxVal
   const isResetDisabled = count === minVal
 
-  const minTnputError = tempMin < 0 || tempMin >= tempMax
+  const minInputError = tempMin < 0 || tempMin >= tempMax
   const maxInputError = tempMax <= tempMin || tempMax < 0
   const hasError = tempMin < 0 || tempMax <= tempMin
 
@@ -48,7 +46,7 @@ function App() {
           <label>
             start Value:
             <input
-              className={minTnputError ? 'input-error' : 'input'}
+              className={minInputError ? 'input-error' : 'input'}
               id={'minVal'}
               value={tempMin}
               type={'number'}
