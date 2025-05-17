@@ -2,13 +2,16 @@ import {type ChangeEvent, useState} from 'react'
 import './App.css'
 
 function App() {
-  let min = 1
-  let max = 2
+  const storeMin = localStorage.getItem('minVal')
+  const storeMax = localStorage.getItem('minVal')
+  const intialMin = storeMin ? Number(storeMin) : 1
+  const intialMax = storeMax ? Number(storeMax) : 2
+
   let errorMessage = 'Incorrect Value!'
   let correctValue = 'Enter values and press set'
 
-  let [minVal, setMinVal] = useState(min)
-  let [maxVal, setMaxVal] = useState(max)
+  let [minVal, setMinVal] = useState(intialMin)
+  let [maxVal, setMaxVal] = useState(intialMax)
   console.log(minVal, maxVal)
   let [count, setCount] = useState(minVal)
   console.log(`count is: `, count)
