@@ -3,20 +3,20 @@ import './App.css'
 
 function App() {
   const storeMin = localStorage.getItem('minVal')
-  const storeMax = localStorage.getItem('minVal')
+  const storeMax = localStorage.getItem('maxVal')
   const intialMin = storeMin ? Number(storeMin) : 1
   const intialMax = storeMax ? Number(storeMax) : 2
 
-  let errorMessage = 'Incorrect Value!'
-  let correctValue = 'Enter values and press set'
+  const errorMessage = 'Incorrect Value!'
+  const correctValue = 'Enter values and press set'
 
-  let [minVal, setMinVal] = useState(intialMin)
-  let [maxVal, setMaxVal] = useState(intialMax)
-  console.log(minVal, maxVal)
-  let [count, setCount] = useState(minVal)
-  console.log(`count is: `, count)
-  const [tempMin, setTempMin] = useState(minVal)
-  const [tempMax, setTempMax] = useState(maxVal)
+  const [minVal, setMinVal] = useState(intialMin)
+  const [maxVal, setMaxVal] = useState(intialMax)
+  // console.log(minVal, maxVal)
+  const [count, setCount] = useState(intialMin)
+  // console.log(`count is: `, count)
+  const [tempMin, setTempMin] = useState(intialMin)
+  const [tempMax, setTempMax] = useState(intialMax)
   const [isSetDisabled, setIsSetDisabled] = useState(true)
   
   const incVal = () => {
@@ -54,6 +54,9 @@ function App() {
     setMaxVal(tempMax)
     setCount(tempMin)
     setIsSetDisabled(true)
+
+    localStorage.setItem('minVal', String(tempMin))
+    localStorage.setItem('maxVal', String(tempMax))
   }
 
   console.log(`is edit ${!isSetDisabled}`)
