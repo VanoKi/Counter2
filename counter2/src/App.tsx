@@ -83,16 +83,16 @@ function App() {
               onChange={(e) => onChangeHandler(e, setTempMax)}></input>
           </label>
         <div className={'btn-wrap'}>
-          <button onClick={setValue} disabled={hasError || isSetDisabled}>set</button>
+          <button className={'btn'} onClick={setValue} disabled={hasError || isSetDisabled}>set</button>
         </div>
       </div>
       <div className={'counter'}>
-        <div>
+        <div className={'display'}>
           {displayCount()}
         </div>
         <div className={'btn-wrap'}>
-          <button onClick={incVal} disabled={isIncDisabled || hasError}>increment</button>
-          <button onClick={resetVal} disabled={isResetDisabled || hasError}>reset</button>
+          <button className={'btn'} onClick={incVal} disabled={isIncDisabled || hasError}>increment</button>
+          <button className={'btn'} onClick={resetVal} disabled={isResetDisabled || hasError}>reset</button>
         </div>
       </div>
     </div>
