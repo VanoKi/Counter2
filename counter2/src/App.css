@@ -42,8 +42,23 @@
   color: #888;
 }
 
-.counter {
+.app {
+  display: flex;
+  gap: 20px;
+}
 
+.counter, .input-panel{
+  border: 2px solid blue;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 300px;
+  height: 200px;
+  padding: 10px;
 }
 
 .red {
@@ -62,7 +77,7 @@
 }
 
 .input-error {
-  border: 2px solid red;
+  border: 3px solid red;
 }
 
 label {
@@ -71,11 +86,19 @@ label {
 }
 
 .btn-wrap {
+  width: 100%;
   border: 2px solid blue;
   border-radius: 20px;
-  margin-bottom: 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;;
+}
+
+.btn-wrap:has(>button:only-child) {
+  justify-content: center;
 }
 
 .btn {
-  font: bold;
+  font-weight: bold;
 }

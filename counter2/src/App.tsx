@@ -62,12 +62,12 @@ function App() {
   console.log(`is edit ${!isSetDisabled}`)
 
   return (
-    <>
+    <div className={'app'}>
       <div className={'input-panel'}>
           <label>
             start Value:
             <input
-              className={minInputError ? 'input-error' : 'input'}
+              className={minInputError ? 'input input-error' : 'input'}
               id={'minVal'}
               value={tempMin}
               type={'number'}
@@ -76,7 +76,7 @@ function App() {
           <label>
             max Value:
             <input
-              className={maxInputError ? 'input-error' : 'input'}
+              className={maxInputError ? 'input input-error' : 'input'}
               id={'maxVal'}
               value={tempMax}
               type={'number'}
@@ -95,7 +95,7 @@ function App() {
           <button onClick={resetVal} disabled={isResetDisabled || hasError}>reset</button>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
