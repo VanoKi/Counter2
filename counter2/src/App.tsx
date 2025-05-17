@@ -55,7 +55,6 @@ function App() {
 
   console.log(`is edit ${!isSetDisabled}`)
 
-
   return (
     <>
       <div className={'input-panel'}>
@@ -83,11 +82,6 @@ function App() {
       </div>
       <div className={'counter'}>
         <div>
-          {/*{hasError ? (
-            <span className={'red'}>{errorMessage}</span>
-          ) : (
-            <span className={isIncDisabled ? 'red' : ''}>{count}</span>
-          )}*/}
           {displayCount()}
         </div>
         <div className={'btn-wrap'}>
