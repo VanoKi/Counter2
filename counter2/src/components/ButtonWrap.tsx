@@ -1,10 +1,12 @@
+import type {ReactNode} from "react";
+
 type Props = {
-  className: string
+  children: ReactNode
 };
-export const ButtonWrap = (props: Props) => {
+export const ButtonWrap = ({children}: Props) => {
   return (
     <div className={'btn-wrap'}>
-
+      {children}
     </div>
   );
 };

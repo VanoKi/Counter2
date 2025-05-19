@@ -2,6 +2,7 @@ import {type ChangeEvent, useState} from 'react'
 import './App.css'
 import {Input} from "./components/Input.tsx";
 import {Button} from "./components/Button.tsx";
+import {ButtonWrap} from "./components/ButtonWrap.tsx";
 
 function App() {
   const storeMin = localStorage.getItem('minVal')
@@ -76,18 +77,18 @@ function App() {
           value={tempMax}
           onChange={(e: ChangeEvent<HTMLInputElement>) => onChangeHandler(e, setTempMax)}
         />
-        <div className={'btn-wrap'}>
+        <ButtonWrap>
           <Button title={'set'} className={'btn'} onClick={setValue} disabled={hasError || isSetDisabled}/>
-        </div>
+        </ButtonWrap>
       </div>
       <div className={'counter'}>
         <div className={'display'}>
           {displayCount()}
         </div>
-        <div className={'btn-wrap'}>
+        <ButtonWrap>
           <Button title={'Increment'} className={'btn'} onClick={incVal} disabled={isIncDisabled || hasError}/>
           <Button title={'Reset'} className={'btn'} onClick={resetVal} disabled={isResetDisabled || hasError}/>
-        </div>
+        </ButtonWrap>
       </div>
     </div>
   )
