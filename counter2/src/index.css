@@ -13,7 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
 
   --main-bg: #C5BBA8;
-  --border-color: #6b40af;
+  --border-color: #211435;
   --dark-font: #211435;
   --btn-color: #6C588D;
 }
@@ -39,11 +39,13 @@ body {
   min-height: 100vh;
 
   background-color: var(--main-bg);
+
   background-image: url('assets/bg/gallerix.jpeg');
   /*background-size: cover;*/
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  /*background-attachment: fixed;*/
 }
 
 h1 {
