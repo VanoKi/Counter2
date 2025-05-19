@@ -64,31 +64,18 @@ function App() {
   return (
     <div className={'app'}>
       <div className={'input-panel'}>
-          <label>
-            start Value:
-            <input
-              className={minInputError ? 'input input-error' : 'input'}
-              id={'minVal'}
-              value={tempMin}
-              type={'number'}
-              onChange={(e) => onChangeHandler(e, setTempMin)}></input>
-          </label>
-{/*        <Input
+        <Input
           title={'Start Value'}
           className={minInputError ? 'input input-error' : 'input'}
-          type={'number'}
           value={tempMin}
           onChange={(e: ChangeEvent<HTMLInputElement>) => onChangeHandler(e, setTempMin)}
-        />*/}
-          <label>
-            max Value:
-            <input
-              className={maxInputError ? 'input input-error' : 'input'}
-              id={'maxVal'}
-              value={tempMax}
-              type={'number'}
-              onChange={(e) => onChangeHandler(e, setTempMax)}></input>
-          </label>
+        />
+        <Input
+          title={'Max Value'}
+          className={maxInputError ? 'input input-error' : 'input'}
+          value={tempMax}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => onChangeHandler(e, setTempMax)}
+        />
         <div className={'btn-wrap'}>
           <Button title={'set'} className={'btn'} onClick={setValue} disabled={hasError || isSetDisabled}/>
         </div>
