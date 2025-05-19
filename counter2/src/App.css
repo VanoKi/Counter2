@@ -128,14 +128,17 @@ label {
   background:  var(--btn-color);
   opacity: 0.8;
   color: var(--dark-font);
+  transition: 0.4s ease;
 }
 
 .btn:disabled {
   cursor: default;
   pointer-events: none;
+  background: #9E82AA;
+  opacity: 0.5;
 }
 
 .btn:hover {
-  background: #9E82AA;
+  background: #A45B6A;
 }
 
