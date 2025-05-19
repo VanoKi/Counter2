@@ -3,6 +3,7 @@ import './App.css'
 import {Input} from "./components/Input.tsx";
 import {Button} from "./components/Button.tsx";
 import {ButtonWrap} from "./components/ButtonWrap.tsx";
+import {Display} from "./components/Display.tsx";
 
 function App() {
   const storeMin = localStorage.getItem('minVal')
@@ -82,9 +83,10 @@ function App() {
         </ButtonWrap>
       </div>
       <div className={'counter'}>
-        <div className={'display'}>
-          {displayCount()}
-        </div>
+        {/*<div className={'display'}>*/}
+        {/*  {displayCount()}*/}
+        {/*</div>*/}
+        <Display displayCount={displayCount}/>
         <ButtonWrap>
           <Button title={'Increment'} className={'btn'} onClick={incVal} disabled={isIncDisabled || hasError}/>
           <Button title={'Reset'} className={'btn'} onClick={resetVal} disabled={isResetDisabled || hasError}/>
