@@ -1,9 +1,6 @@
-import type {ReactNode} from "react";
+import type {PropsWithChildren} from "react";
 
-type Props = {
-  children: ReactNode
-};
-export const ButtonWrap = ({children}: Props) => {
+export const ButtonWrap = ({children}: PropsWithChildren) => {
   return (
     <div className={'btn-wrap'}>
       {children}

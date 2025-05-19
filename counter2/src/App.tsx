@@ -4,6 +4,7 @@ import {Input} from "./components/Input.tsx";
 import {Button} from "./components/Button.tsx";
 import {ButtonWrap} from "./components/ButtonWrap.tsx";
 import {Display} from "./components/Display.tsx";
+import {InputPanel} from "./components/InputPanel.tsx";
 
 function App() {
   const storeMin = localStorage.getItem('minVal')
@@ -65,7 +66,7 @@ function App() {
 
   return (
     <div className={'app'}>
-      <div className={'input-panel'}>
+      <InputPanel>
         <Input
           title={'Start Value'}
           className={minInputError ? 'input input-error' : 'input'}
@@ -81,11 +82,8 @@ function App() {
         <ButtonWrap>
           <Button title={'set'} className={'btn'} onClick={setValue} disabled={hasError || isSetDisabled}/>
         </ButtonWrap>
-      </div>
+      </InputPanel>
       <div className={'counter'}>
-        {/*<div className={'display'}>*/}
-        {/*  {displayCount()}*/}
-        {/*</div>*/}
         <Display displayCount={displayCount}/>
         <ButtonWrap>
           <Button title={'Increment'} className={'btn'} onClick={incVal} disabled={isIncDisabled || hasError}/>
