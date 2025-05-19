@@ -2,24 +2,21 @@ import type {ChangeEvent} from "react";
 
 type Props = {
   title: string
+  className: string
+  type: string
   value: number
-  onChange: (value: number) => void
-  hasError?: boolean
+  onChange: (e: ChangeEvent<HTMLInputElement>, setTempMin) => void
 };
 export const Input = (props: Props) => {
-  const {title, value, onChange, hasError} = props
-  const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    onChange(Number(e.currentTarget.value))
-  }
+  const {title, className, value, onChange, setTempMin} = props
   return (
     <label>
-      <span>{title}</span>
+      {title}
       <input
-        className={hasError ? 'input-error' : 'input'}
+        className={className}
         type={'number'}
         value={value}
-        onChange={onChangeHandler}
-        aria-invalid={hasError}
+        onChange={(e, setTempMin) => onChange}
       />
     </label>
   );

@@ -1,5 +1,6 @@
 import {type ChangeEvent, useState} from 'react'
 import './App.css'
+import {Input} from "./components/Input.tsx";
 
 function App() {
   const storeMin = localStorage.getItem('minVal')
@@ -71,6 +72,13 @@ function App() {
               type={'number'}
               onChange={(e) => onChangeHandler(e, setTempMin)}></input>
           </label>
+        <Input
+          title={'Start Value'}
+          className={minInputError ? 'input input-error' : 'input'}
+          type={'number'}
+          value={tempMin}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => onChangeHandler(e, setTempMin)}
+        />
           <label>
             max Value:
             <input
