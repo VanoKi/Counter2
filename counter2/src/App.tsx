@@ -12,9 +12,7 @@ function App() {
 
   const [minVal, setMinVal] = useState(intialMin)
   const [maxVal, setMaxVal] = useState(intialMax)
-  // console.log(minVal, maxVal)
   const [count, setCount] = useState(intialMin)
-  // console.log(`count is: `, count)
   const [tempMin, setTempMin] = useState(intialMin)
   const [tempMax, setTempMax] = useState(intialMax)
   const [isSetDisabled, setIsSetDisabled] = useState(true)
