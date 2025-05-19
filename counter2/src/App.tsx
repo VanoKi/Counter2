@@ -1,6 +1,7 @@
 import {type ChangeEvent, useState} from 'react'
 import './App.css'
 import {Input} from "./components/Input.tsx";
+import {Button} from "./components/Button.tsx";
 
 function App() {
   const storeMin = localStorage.getItem('minVal')
@@ -72,13 +73,13 @@ function App() {
               type={'number'}
               onChange={(e) => onChangeHandler(e, setTempMin)}></input>
           </label>
-        <Input
+{/*        <Input
           title={'Start Value'}
           className={minInputError ? 'input input-error' : 'input'}
           type={'number'}
           value={tempMin}
           onChange={(e: ChangeEvent<HTMLInputElement>) => onChangeHandler(e, setTempMin)}
-        />
+        />*/}
           <label>
             max Value:
             <input
@@ -89,7 +90,7 @@ function App() {
               onChange={(e) => onChangeHandler(e, setTempMax)}></input>
           </label>
         <div className={'btn-wrap'}>
-          <button className={'btn'} onClick={setValue} disabled={hasError || isSetDisabled}>set</button>
+          <Button title={'set'} className={'btn'} onClick={setValue} disabled={hasError || isSetDisabled}/>
         </div>
       </div>
       <div className={'counter'}>
@@ -97,8 +98,8 @@ function App() {
           {displayCount()}
         </div>
         <div className={'btn-wrap'}>
-          <button className={'btn'} onClick={incVal} disabled={isIncDisabled || hasError}>increment</button>
-          <button className={'btn'} onClick={resetVal} disabled={isResetDisabled || hasError}>reset</button>
+          <Button title={'Increment'} className={'btn'} onClick={incVal} disabled={isIncDisabled || hasError}/>
+          <Button title={'Reset'} className={'btn'} onClick={resetVal} disabled={isResetDisabled || hasError}/>
         </div>
       </div>
     </div>
