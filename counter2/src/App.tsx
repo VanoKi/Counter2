@@ -62,8 +62,6 @@ function App() {
     localStorage.setItem('maxVal', String(tempMax))
   }
 
-  console.log(`is edit ${!isSetDisabled}`)
-
   return (
     <div className={'app'}>
       <InputPanel>
